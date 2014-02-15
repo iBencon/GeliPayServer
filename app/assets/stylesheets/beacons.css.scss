@@ -1,3 +1,52 @@
 // Place all the styles related to the Beacons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$box_height: 130px;
+$door_height: 50px;
+
+li {
+  list-style: none;
+}
+
+.toilet {
+  width: 110px;
+  height: $box_height + $door_height;
+
+  float: left;
+}
+
+.box {
+  width: 100%;
+  height: $box_height;
+  border-top: solid 3px;
+  border-right: solid 3px;
+  padding: 20px auto;
+  text-align: center;
+
+  img {
+    margin-top: 20px;
+    width: 80%;
+  }
+}
+
+
+ul.toilets li:first-child .box{
+  border-left: solid 3px;
+}
+
+.list {
+  position: relative;
+}
+
+.list ul {
+  list-style: none outside none;
+  float: left;
+  position: relative;
+  left: 47%;
+}
+.list ul li {
+  float: left;
+  position: relative;
+  left: -50%;
+}
