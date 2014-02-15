@@ -12,7 +12,6 @@ li {
 .toilet {
   width: 110px;
   height: $box_height + $door_height;
-
   float: left;
 }
 
@@ -37,6 +36,7 @@ ul.toilets li:first-child .box{
 
 .list {
   position: relative;
+  height:200px;
 }
 
 .list ul {
@@ -49,4 +49,13 @@ ul.toilets li:first-child .box{
   float: left;
   position: relative;
   left: -50%;
+}
+
+.medicine {
+  width:70%;
+  margin: 0 auto;
+}
+
+.medicine .total {
+  text-align: right;
 }
