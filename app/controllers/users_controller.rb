@@ -75,6 +75,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def pay
+    @user = User.where(uid: params['uid']).first
+    @user.update_attribute(:payed, true)
+    render json: @user.to_json and return
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
