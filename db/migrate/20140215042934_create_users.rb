@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.references :beacon, index: true
       t.string :uid
-      t.boolean :payid, defalut: false
+      t.boolean :payed, defalut: false
 
       t.timestamps
     end
