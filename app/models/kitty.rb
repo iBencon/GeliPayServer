@@ -7,4 +7,8 @@ class Kitty < ActiveRecord::Base
     end
     Kitty.first.update_attribute(:money, Kitty.first.money + 100)
   end
+
+  def self.now
+    return Kitty.first.money
+  end
 end
