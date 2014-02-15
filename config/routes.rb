@@ -1,7 +1,16 @@
 GeliPayServer::Application.routes.draw do
-  resources :users
 
-  resources :beacons
+  root 'beacons#index'
+
+  resources :users, only: 'create' do
+    collection do
+      get  'payed'
+      post 'pay'
+    end
+  end
+
+  resources :beacons, only: 'index' do
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -43,7 +52,7 @@ GeliPayServer::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
