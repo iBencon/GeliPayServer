@@ -7,6 +7,18 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+  def exit
+    if User.where(uid: params['uid']).count > 0
+      User.where(uid: params['uid']).first.destroy
+    end
+
+    respond_to do |format|
+      format.json { render json: {status: 'deleted'}.to_json }
+    end
+  end
+
+
   # GET /users/1
   # GET /users/1.json
   def show
