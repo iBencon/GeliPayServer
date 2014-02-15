@@ -78,6 +78,7 @@ class UsersController < ApplicationController
   def pay
     @user = User.where(uid: params['uid']).first
     @user.update_attribute(:payed, true)
+    Kitty.increment
     render json: @user.to_json and return
   end
 
