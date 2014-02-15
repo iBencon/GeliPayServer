@@ -1,27 +1,101 @@
-<h1>Listing beacons</h1>
+<div class="row">
+  <div class="large-12 columns">
 
-<table>
-  <thead>
-    <tr>
-      <th>Devise</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <!-- Navigation -->
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+        <h1>
+          <a href="#">
+            GeliPay!
+          </a>
+        </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+      </ul>
 
-  <tbody>
-    <% @beacons.each do |beacon| %>
-      <tr>
-        <td><%= beacon.devise_id %></td>
-        <td><%= link_to 'Show', beacon %></td>
-        <td><%= link_to 'Edit', edit_beacon_path(beacon) %></td>
-        <td><%= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+        </ul>
 
-<br>
+      </section>
+    </nav>
 
-<%= link_to 'New Beacon', new_beacon_path %>
+    <!-- End Navigation -->
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-6 columns">
+
+    <!-- Desktop Slider -->
+
+    <div class="hide-for-small">
+      <div id="featured">
+        <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+        <!-- <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
+        <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"> -->
+      </div>
+    </div>
+
+    <!-- End Desktop Slider -->
+    <!-- Mobile Header -->
+
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+        <img src="http://placehold.it/1000x600&text=For Small Screens" />
+      </div>
+    </div>
+
+
+    <!-- End Mobile Header -->
+
+  </div>
+</div><br>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+
+      <!-- Thumbnails -->
+      <% @beacons.each do |beacon| %>
+      <% user = User.find_by beacon_id: beacon.id %>
+      <div class="large-2 small-6 columns">
+        <%= image_tag @icons[user.id - 1] %>
+        <h6 class="panel"><%= beacon.devise_id %></h6>
+        <h6 class="panel"><%= @taizais[user.id - 1] %></h6>
+      </div>
+      <% end %>
+
+      <!-- End Thumbnails -->
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+
+<footer class="row">
+  <div class="large-12 columns">
+    <hr>
+    <div class="row">
+      <div class="large-6 columns">
+        <p>© copyright iBencon</p>
+      </div>
+    </div>
+  </div>
+</footer>
