@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def create
     @beacon = Beacon.where(devise_id: params['devise_id']).first
     @user = User.new(uid: params['uid'])
-    @beacon.users << @user
+    @beacon.user = @user
 
     respond_to do |format|
       format.html { redirect_to @user, notice: 'User was successfully created.' }
