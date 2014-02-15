@@ -11,5 +11,5 @@ Beacon.create( devise_id: '6521-13509' )
 
 User.create( { beacon_id: 1,
                uid: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-               payid: false
+               payed: false
              } );
