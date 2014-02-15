@@ -5,6 +5,11 @@
 $box_height: 130px;
 $door_height: 50px;
 
+.logo {
+  font-family: 'Contrail One', cursive;
+  font-size: 100pt;
+}
+
 li {
   list-style: none;
 }
@@ -58,4 +63,9 @@ ul.toilets li:first-child .box{
 
 .medicine .total {
   text-align: right;
+}
+
+footer {
+  font-family: 'Share Tech', sans-serif;
+  font-size:18pt;
 }
