@@ -4,6 +4,7 @@ GeliPayServer::Application.routes.draw do
 
   resources :users, only: ['create', 'new'] do
     collection do
+      delete 'exit'
       get  'payed'
       post 'pay'
       get  'test_add'
