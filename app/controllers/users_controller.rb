@@ -27,10 +27,11 @@ class UsersController < ApplicationController
     @beacon = Beacon.where(devise_id: params['devise_id']).first
     @user = User.new(uid: params['uid'])
     @beacon.user = @user
+    @user.save
 
     respond_to do |format|
       format.html { redirect_to @user, notice: 'User was successfully created.' }
-      format.json { render action: 'show', status: :created, location: @user }
+      format.json { render json: @user }
     end
   end
 
