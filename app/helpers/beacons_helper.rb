@@ -5,7 +5,11 @@ module BeaconsHelper
       return "void.png"
     end
 
-    if beacon.sojourn_time < 300
+    if beacon.user_payed?
+      return "payed.png"
+    end
+
+    if beacon.sojourn_time < Constants::ALARM_LIMIT
       return "normal.png"
     else
       return "unko.png"
