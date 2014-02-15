@@ -24,16 +24,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @beacon = Beacon.where(devise_id: params['devise_id']).first
+    @user = User.new(uid: params['uid'])
+    @beacon.users << @user
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to @user, notice: 'User was successfully created.' }
+      format.json { render action: 'show', status: :created, location: @user }
     end
   end
 
