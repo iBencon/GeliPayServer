@@ -1,12 +1,10 @@
 class BeaconsController < ApplicationController
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
-  before_action :dispatchicons, only: [:index]
 
   # GET /beacons
   # GET /beacons.json
   def index
     @beacons = Beacon.all
-    @users = User.all
   end
 
   # GET /beacons/1
@@ -60,27 +58,6 @@ class BeaconsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to beacons_url }
       format.json { head :no_content }
-    end
-  end
-
-  def dispatchicons
-    @beacons = Beacon.all
-    @icons = []
-    @taizais = []
-    @beacons.each do |beacon|
-      if beacon.user_void? then
-        icon = "void.png"
-        taizai = nil
-      elsif
-        taizai = Time.now - beacon.users.first.created_at
-        if taizai < 300 then
-          icon = "normal.png"
-        elsif
-          icon = "unko.png"
-        end
-      end
-      @icons.push(icon)
-      @taizais.push(taizai)
     end
   end
 
