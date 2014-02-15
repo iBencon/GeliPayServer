@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140215042934) do
 
-  create_table "beacoms", force: true do |t|
-    t.string   "devise_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "beacons", force: true do |t|
     t.string   "devise_id"
     t.datetime "created_at"
