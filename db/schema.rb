@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215041532) do
+ActiveRecord::Schema.define(version: 20140215042934) do
 
   create_table "beacoms", force: true do |t|
     t.string   "devise_id"
@@ -24,5 +24,15 @@ ActiveRecord::Schema.define(version: 20140215041532) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.integer  "beacon_id"
+    t.string   "uid"
+    t.boolean  "payid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["beacon_id"], name: "index_users_on_beacon_id"
 
 end
