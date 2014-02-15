@@ -76,8 +76,9 @@ class UsersController < ApplicationController
   end
 
   def pay
-    User.update_all "payed = 1", "uid = '#{params[:uid]}'"
-    render json: { status: "payed!" }.to_json and return
+    @user = User.where(uid: params['uid']).first
+    @user.update_attribute(:payed, true)
+    render json: @user.to_json and return
   end
 
   private
