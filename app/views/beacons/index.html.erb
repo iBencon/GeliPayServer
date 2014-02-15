@@ -1,90 +1,18 @@
-<div class="row">
-  <div class="large-12 columns">
-
-    <!-- Navigation -->
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <!-- Title Area -->
-        <li class="name">
-        <h1>
-          <a href="#">
-            GeliPay!
-          </a>
-        </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <ul class="left">
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-        </ul>
-
-      </section>
-    </nav>
-
-    <!-- End Navigation -->
-
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="large-6 columns">
-
-    <!-- Desktop Slider -->
-
-    <div class="hide-for-small">
-      <div id="featured">
-        <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-        <!-- <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-        <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"> -->
-      </div>
-    </div>
-
-    <!-- End Desktop Slider -->
-    <!-- Mobile Header -->
-
-    <div class="row">
-      <div class="small-12 show-for-small"><br>
-        <img src="http://placehold.it/1000x600&text=For Small Screens" />
-      </div>
-    </div>
-  </div>
-</div><br>
-
-<div class="row">
-  <div class="large-12 columns">
-    <div class="row">
-      <!-- Thumbnails -->
-      <% @beacons.each do |beacon| %>
-      <div class="large-2 small-6 columns">
-        <% if beacon.user.nil? %>
+<div class="list">
+  <ul class="toilets">
+    <% @beacons.each do |beacon| %>
+      <li class="toilet">
+        <% unless beacon.user.nil? %>
+          <div class="box">
+            <%= image_tag status_image(beacon) %>
+          </div>
+          <%= image_tag "door_close.png" %>
         <% else %>
-          <%= image_tag status_image(beacon) %>
-          <h6 class="panel"><%= beacon.devise_id %></h6>
-          <h6 class="panel"><%= beacon.sojourn_time %></h6>
+          <div class="box">
+          </div>
+        <%= image_tag "door_open.png" %>
         <% end %>
-      </div>
-      <% end %>
-    </div>
-  </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
-
-<div class="row">
-  <div class="large-12 columns">
-    <div class="row">
-    </div>
-  </div>
-</div>
-<footer class="row">
-  <div class="large-12 columns">
-    <hr>
-    <div class="row">
-      <div class="large-6 columns">
-        <p>© copyright iBencon</p>
-      </div>
-    </div>
-  </div>
-</footer>
