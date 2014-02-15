@@ -11,4 +11,9 @@ class Kitty < ActiveRecord::Base
   def self.now
     return Kitty.first.money
   end
+
+  def self.medicine
+    return Kitty.first.money / 300
+  end
+
 end

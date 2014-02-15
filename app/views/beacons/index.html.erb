@@ -16,3 +16,12 @@
     <% end %>
   </ul>
 </div>
+<div class="medicine">
+  <h2>Medicine for stomach × <%= Kitty.medicine %></h2></br>
+  <% (0..Kitty.medicine).each do %>
+  <%= image_tag "medicine.png" %>
+  <% end%>
+  <div class="total">
+    <h3>Total <%= Kitty.now %> YEN</h3>
+  </div>
+</div>
