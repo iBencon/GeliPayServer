@@ -1,12 +1,12 @@
 class Beacon < ActiveRecord::Base
-  has_many :users
+  has_one :users
 
   def user_void?
     return users.count == 0 ? true : false
   end
 
   def sojourn_time
-    return Time.now - users.first.created_at
+    return Time.now - users.created_at
   end
 
 end
