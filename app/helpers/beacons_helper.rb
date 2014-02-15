@@ -12,7 +12,7 @@ module BeaconsHelper
     if beacon.sojourn_time < Constants::ALARM_LIMIT
       return "normal.png"
     else
-      return "unko.png"
+      return "geli.png"
     end
   end
 
