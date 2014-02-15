@@ -64,26 +64,21 @@ class BeaconsController < ApplicationController
   end
 
   def dispatchicons
-
-    @users = User.all
+    @beacons = Beacon.all
     @icons = []
     @taizais = []
-    now = Time.now
-    
-    @users.each do |user|
-      
-      if Beacon.find_by(user.beacon_id).void? then
+    @beacons.each do |beacon|
+      if beacon.user_void? then
         icon = "void.png"
-        next
-      end
-      taizai = now - user.created_at
-      # 5分超えたらうんこアイコン 
-      if taizai < 300 then
-        icon = "normal.png"
+        taizai = nil
       elsif
-        icon = "unko.png"
+        taizai = Time.now - beacon.users.first.created_at
+        if taizai < 300 then
+          icon = "normal.png"
+        elsif
+          icon = "unko.png"
+        end
       end
-
       @icons.push(icon)
       @taizais.push(taizai)
     end
