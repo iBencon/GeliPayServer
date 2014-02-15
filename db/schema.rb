@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140215042934) do
   create_table "users", force: true do |t|
     t.integer  "beacon_id"
     t.string   "uid"
-    t.boolean  "payid"
+    t.boolean  "payed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
