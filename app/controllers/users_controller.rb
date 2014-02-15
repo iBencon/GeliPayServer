@@ -75,6 +75,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def pay
+    User.update_all "payed = 1", "uid = '#{params[:uid]}'"
+    render json: { status: "payed!" }.to_json and return
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
