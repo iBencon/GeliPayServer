@@ -2,10 +2,11 @@ GeliPayServer::Application.routes.draw do
 
   root 'beacons#index'
 
-  resources :users, only: 'create' do
+  resources :users, only: ['create', 'new'] do
     collection do
       get  'payed'
       post 'pay'
+      get  'test_add'
     end
   end
 
