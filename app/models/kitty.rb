@@ -13,7 +13,7 @@ class Kitty < ActiveRecord::Base
   end
 
   def self.medicine
-    return Kitty.first.money / 300
+    return (Kitty.first.money / 300).floor
   end
 
 end
